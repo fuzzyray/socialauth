@@ -1,0 +1,35 @@
+{
+	"name": "socialauth",
+	"author": "http://github.com/JosephLivengood",
+	"version": "0.0.1",
+	"description": "What am I about?",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"dotenv": "^8.2.0",
+		"cors": "^2.8.5",
+		"body-parser": "^1.19.0",
+		"mongodb": "^3.6.0",
+		"helmet": "^4.1.0",
+		"pug": "^3.0.0",
+		"passport": "^0.4.1",
+		"express-session": "^1.17.1",
+		"passport-local": "^1.0.0"
+	},
+	"engines": {
+		"node": "4.4.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/fuzzyray/socialauth.git"
+	},
+	"keywords": [
+		"node",
+		"express",
+		"freecodecamp"
+	],
+	"license": "MIT"
+}
