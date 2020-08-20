@@ -63,13 +63,16 @@ mongoClient.connect((err) => {
     /*
     *  ADD YOUR CODE BELOW
     */
-    /*
+
     passport.use(new GitHubStrategy({
-      clientID: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: '/auth/github/callback',
-    }));
-    */
+          clientID: process.env.GITHUB_CLIENT_ID,
+          clientSecret: process.env.GITHUB_CLIENT_SECRET,
+          callbackURL: 'https://socialauth.fuzzyray.repl.co/auth/github/callback',
+        }, (accessToken, refreshToken, profile, cb) => {
+          console.log(profile);
+        },
+    ));
+
     app.route('/auth/github')
         .get(passport.authenticate('github'));
 
