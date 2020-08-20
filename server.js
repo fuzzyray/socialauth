@@ -7,6 +7,7 @@ const fccTesting = require('./freeCodeCamp/fcctesting.js');
 const session = require('express-session');
 const mongo = require('mongodb').MongoClient;
 const passport = require('passport');
+const GitHubStrategy = require('passport-github');
 
 const app = express();
 
@@ -62,6 +63,21 @@ mongoClient.connect((err) => {
     /*
     *  ADD YOUR CODE BELOW
     */
+    /*
+    passport.use(new GitHubStrategy({
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: '/auth/github/callback',
+    }));
+    */
+    app.route('/auth/github')
+        .get(passport.authenticate('github'));
+
+    const authOptions = {failureRedirect: '/'};
+    app.route('/auth/github/callback')
+        .get(passport.authenticate('github', authOptions), (req, res) => {
+          res.redirect('/profile');
+        });
 
     /*
     *  ADD YOUR CODE ABOVE
